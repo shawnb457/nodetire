@@ -1,0 +1,50 @@
+<% include header/head %>
+<body>
+<% include nav/subnav %>
+ <link href="assets/css/pages/signin.css" rel="stylesheet" type="text/css">
+
+
+
+
+<div class="account-container ">
+    
+    <div class="content clearfix">
+      
+        <form action="/keylogin" method="post">
+         <h1>Key Login</h1>  
+         <div class="login-fields">
+         <div class="field">
+                <input type="password"  name="key" value="" placeholder="Key" class="form-control input-lg password-field"/>
+            </div>
+            <div>
+                <table class="content clearfix" id="n_keypad">
+                <tr>
+                   <td><a href="#" class="stylish btn btn-primary">7</a></td>
+                   <td><a href="#" class="stylish">8</a></td>
+                  <td><a href="#" class="stylish">9</a></td>
+                </tr>
+                <tr>
+                   <td><a href="#" class="stylish">4</a></td>
+                   <td><a href="#" class="stylish">5</a></td>
+                   <td><a href="#" class="stylish">6</a></td>
+                   
+                </tr>
+                <tr>
+                   <td><a href="#" class="stylish">1</a></td>
+                  <td><a href="#" class="stylish">2</a></td>
+                  <td><a href="#" class="stylish">3</a></td>
+                  
+                </tr>
+                <tr>
+                    <td></td>
+                  <td><a href="#" class="stylish">0</a></td>
+                    
+                </tr>
+            </table>
+        </div>
+    </div>
+    </form>
+        
+    </div> <!-- /content -->
+    
+</div> <!-- /account-container -->

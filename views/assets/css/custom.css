@@ -1,0 +1,30 @@
+/*------------------------------------------------------------------
+
+[Custom Stylesheet]
+
+
+Last change:    03/25/2013
+Assigned to:    You
+
+-------------------------------------------------------------------*/
+.stylish {
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 66px;
+    border: 4px double #ccc;
+    font-size: 30px;
+    color: #666;
+    line-height: 60px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: 0 1px 0 #fff;
+    background: #ddd;
+    cursor: pointer;
+}
+.stylish:hover {
+    border: 4px double #ccc;
+    color: #aaa;
+    text-decoration: none;
+    background: #e6e6e6;
+}
