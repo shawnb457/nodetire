@@ -8,3 +8,6 @@ after_script:
 notifications:
   email:
     - shawnb457@gmail.com
+deploy:
+  provider: heroku
+  api_key: "ssh-dss AAAAB3NzaC...MJPVxeAw== shawnb457@gmail.com"
