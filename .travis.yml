@@ -10,4 +10,4 @@ notifications:
     - shawnb457@gmail.com
 deploy:
   provider: heroku
-  api_key: "ssh-dss AAAAB3NzaC...MJPVxeAw== shawnb457@gmail.com"
+  api_key: "9091071b-91b9-421d-9704-3976d65f1017"
