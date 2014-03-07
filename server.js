@@ -2,12 +2,20 @@
 
 // set up ======================================================================
 // get all the tools we need
+var yaml_config = require('node-yaml-config');
+var config = yaml_config.load(__dirname + '/config/config.yml');
 var express  = require('express');
 var app      = express();
-var port     = process.env.PORT || 3080;
+var port     = process.env.PORT || config.server.port;
 var mongoose = require('mongoose');
 var passport = require('passport');
 var flash    = require('connect-flash');
+
+
+
+
+
+console.log(config.server.port);
 
 //var configDB = require('./config/database.js');
 
@@ -39,5 +47,6 @@ app.configure(function() {
 require('./app/routes.js')(app, passport); // load our routes and pass in our app and fully configured passport
 
 // launch ======================================================================
+
 app.listen(port);
 
