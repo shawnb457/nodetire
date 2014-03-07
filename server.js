@@ -22,7 +22,7 @@ console.log(config.server.port);
 
 // configuration ===============================================================
 //mongoose.connect(configDB.url); // connect to our database
-mongoose.connect('mongodb://localhost/AppRoles');
+mongoose.connect('mongodb://JakeBrink:MagsBrink@troup.mongohq.com:10089/app22718780');
 
 require('./config/passport')(passport); // pass passport for configuration
 
