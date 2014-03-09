@@ -28,7 +28,7 @@ deploy:
         overwrite: true
     - script:
         name: transfer application
-        code: |
+        code: | 
           pwd
           ls -la
           scp -i $PRIVATEKEY_PATH server.js package.json root@107.170.71.156:/var/local/www
