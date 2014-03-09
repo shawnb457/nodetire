@@ -18,7 +18,7 @@ build:
 deploy:
   steps:
     - add-to-known_hosts:
-        hostname: 107.170.239.45
+        hostname: 107.170.71.156
     - mktemp:
         envvar: PRIVATEKEY_PATH
     - create-file:
@@ -31,12 +31,12 @@ deploy:
         code: |
           pwd
           ls -la
-          scp -i $PRIVATEKEY_PATH server.js package.json root@107.170.239.45:/var/local/www
+          scp -i $PRIVATEKEY_PATH server.js package.json root@107.170.71.156:/var/local/www
     - script:
         name: npm install
-        code: ssh -i $PRIVATEKEY_PATH -l  root 107.170.239.45 "cd /var/local/www/ &&  npm install --production"
+        code: ssh -i $PRIVATEKEY_PATH -l  root 107.170.71.156 "cd /var/local/www/ &&  npm install --production"
     - script:
         name: start application
         code: |
-          ssh -i $PRIVATEKEY_PATH -l root 107.170.239.45 "if [[ \"\$(status node-app)\" = *start/running* ]]; then stop node-app -n ; fi"
+          ssh -i $PRIVATEKEY_PATH -l root 107.170.71.156 "if [[ \"\$(status node-app)\" = *start/running* ]]; then stop node-app -n ; fi"
           ssh -i $PRIVATEKEY_PATH -l root nodetire start node-app
