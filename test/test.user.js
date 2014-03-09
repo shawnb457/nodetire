@@ -1,6 +1,6 @@
 var should = require("should");
 var mongoose = require('mongoose');
-var Account = require("../app/models/user.js");
+var User = require("../app/models/user.js");
 var db;
 
 describe('User', function() {
@@ -16,12 +16,12 @@ before(function(done) {
  });
 
  beforeEach(function(done) {
-  var account = new Account({
-    email: '12345',
-    password: 'testy'
+  var user = new User({
+    local.email: '12345',
+    local.password: 'testy'
   });
 
-  account.save(function(error) {
+  user.save(function(error) {
     if (error) console.log('error' + error.message);
     else console.log('no error');
     done();
@@ -29,15 +29,15 @@ before(function(done) {
  });
 
  it('find a user by username', function(done) {
-    Account.findOne({ email: '12345' }, function(err, account) {
-      account.email.should.eql('12345');
-      console.log("   username: ", account.username)
+    User.findOne({ local.email: '12345' }, function(err, account) {
+      user.email.should.eql('12345');
+      
       done();
     });
  });
 
  afterEach(function(done) {
-    Account.remove({}, function() {
+    User.remove({}, function() {
       done();
     });
  });
