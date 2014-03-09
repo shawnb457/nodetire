@@ -17,7 +17,7 @@ before(function(done) {
 
  beforeEach(function(done) {
   var account = new Account({
-    username: '12345',
+    email: '12345',
     password: 'testy'
   });
 
@@ -29,8 +29,8 @@ before(function(done) {
  });
 
  it('find a user by username', function(done) {
-    Account.findOne({ username: '12345' }, function(err, account) {
-      account.username.should.eql('12345');
+    Account.findOne({ email: '12345' }, function(err, account) {
+      account.email.should.eql('12345');
       console.log("   username: ", account.username)
       done();
     });
