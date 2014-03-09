@@ -1,12 +1,12 @@
 var should = require("should");
 var mongoose = require('mongoose');
-var Account = require("../models/user.js");
+var Account = require("/app/models/user.js");
 var db;
 
 describe('User', function() {
 
 before(function(done) {
- db = mongoose.connect('mongodb://localhost/AppRoles');
+ db = mongoose.connect('mongodb://JakeBrink:MagsBrink@troup.mongohq.com:10089/app22718780');
    done();
  });
 
