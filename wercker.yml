@@ -27,7 +27,7 @@ deploy:
         content: $WERCKER_PRIVATE
         overwrite: true
     - script:
-        name: transfer application
+        name: transfer application 
         code: | 
           pwd
           ls -la
