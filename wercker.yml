@@ -36,7 +36,7 @@ deploy:
         name: npm install
         code: ssh -i $PRIVATEKEY_PATH -l  root 107.170.71.156 "cd /var/local/www/ &&  npm install --production"
     - script:
-        name: start application
+        name: start application 
         code: |
           ssh -i $PRIVATEKEY_PATH -l root 107.170.71.156 "if [[ \"\$(status node-app)\" = *start/running* ]]; then stop node-app -n ; fi"
           ssh -i $PRIVATEKEY_PATH -l root nodetire start node-app
