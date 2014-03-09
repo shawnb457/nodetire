@@ -17,7 +17,7 @@ before(function(done) {
 
  beforeEach(function(done) {
   var user = new User({
-    local.email: '12345',
+    local['email']: '12345',
     local.password: 'testy'
   });
 
