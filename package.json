@@ -1,7 +1,11 @@
 {
-  "name": "node-tire",
+  "name": "nodetire",
+  "version": "0.0.1",
   "main": "server.js",
-  "dependencies": {
+  "engines" : {
+  "node": "0.10.x"
+  },
+    "dependencies": {
     "express": "~3.4.4",
     "ejs": "~0.8.5",
     "mongoose": "~3.8.1",
@@ -15,8 +19,9 @@
     "should": "~3.1.3"
   },
   "scripts": {
-    "start": "node server.js",
-    "test": "make test"
+    "test": "mocha",
+    "start": "server.js"
+   
   },
   "devDependencies": {
     "grunt-contrib-cssmin": "~0.8.0",
