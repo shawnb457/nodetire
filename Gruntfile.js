@@ -21,10 +21,7 @@ module.exports = function (grunt) {
                     archive: 'app.tar'
                 },
                 files: [
-                {
-                    src: ['path/**'],
-                    dest: 'app'
-                }
+                {expand: true, cwd: 'app/', src: ['**'], dest: 'app/'},
                 ]
             }
         },
