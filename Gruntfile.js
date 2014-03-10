@@ -20,20 +20,10 @@ module.exports = function (grunt) {
                 options: {
                     archive: 'app.tar'
                 },
-                files: [{
-                    src: ['app/*','views/**/*','views/*','models/*','config/*'],
-                    dest: 'dist/',
-                    filter: 'isFile'
-                }, // includes files in path
+                files: [
                 {
-                    src: ['views/**'],
-                    dest: 'app/'
-                }, // includes files in path and its subdirs
-                {
-                    expand: true,
-                    cwd: 'app/',
-                    src: ['**'],
-                    dest: 'app/'
+                    src: ['path/**'],
+                    dest: 'app'
                 }
                 ]
             }
@@ -43,7 +33,7 @@ module.exports = function (grunt) {
                 src: ['views/assets/css/*'],
                 dest: 'views/assets/css/combined.css'
             },
-            /*   js: {
+/*   js: {
                 src: ['js/*'],
                 dest: 'combined.js'
             }*/
