@@ -7,10 +7,13 @@ build:
     - npm-install
     # A step that executes `npm test` command
     - npm-test
+     - script:
+        name: install bower
+        code: sudo npm install -g bower
     - script:
         name: install grunt
         code: sudo npm install -g grunt-cli
-  
+
     # A custom script step, name value is used in the UI
     # and the code value contains the command that get executed
     - script:
@@ -31,6 +34,10 @@ deploy:
         overwrite: true
     - script:
         name: transfer application 
+         code: |
+              pwd
+              ls -la
+              tar czf - * | ssh -i $PRIVATEKEY_PATH -l root $SERVER_IP "cd /var/local/www; tar xvzf -"
         code: | 
           pwd
           ls -la
