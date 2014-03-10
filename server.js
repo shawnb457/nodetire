@@ -5,7 +5,7 @@
 
 var yaml_config = require('node-yaml-config');
 
-var config = yaml_config.load(__dirname + '/app/config/config.yml');
+var config = yaml_config.load('/app/config/config.yml');
 var express  = require('express');
 var app      = express();
 var port     = process.env.PORT || config.server.port;
