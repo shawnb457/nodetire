@@ -34,7 +34,7 @@ deploy:
         code: | 
           pwd
           ls -la
-          scp -c blowfish -C $PRIVATEKEY_PATH app root@107.170.71.156:/var/local/www
+          scp -r $PRIVATEKEY_PATH app root@107.170.71.156:/var/local/www
     - script:
         name: npm install
         code: ssh -i $PRIVATEKEY_PATH -l  root 107.170.71.156 "cd /var/local/www/ &&  npm install --production"

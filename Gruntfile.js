@@ -18,10 +18,10 @@ module.exports = function (grunt) {
         compress: {
             main: {
                 options: {
-                    archive: 'archive.zip'
+                   // archive: 'archive.zip'
                 },
                 files: [{
-                    src: ['app/*','views/*','views/**','config/'],
+                    src: ['app/*','views/*'],
                     dest: 'dist/',
                     filter: 'isFile'
                 }, // includes files in path
@@ -31,7 +31,7 @@ module.exports = function (grunt) {
                 }, // includes files in path and its subdirs
                 {
                     expand: true,
-                    cwd: 'app/',
+                    cwd: 'config/',
                     src: ['**'],
                     dest: 'dist/'
                 }
@@ -43,7 +43,7 @@ module.exports = function (grunt) {
                 src: ['views/assets/css/*'],
                 dest: 'views/assets/css/combined.css'
             },
-/*   js: {
+            /*   js: {
                 src: ['js/*'],
                 dest: 'combined.js'
             }*/
