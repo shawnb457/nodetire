@@ -25,7 +25,7 @@ console.log(config.server.port);
 //mongoose.connect(configDB.url); // connect to our database
 mongoose.connect('mongodb://JakeBrink:MagsBrink@troup.mongohq.com:10089/app22718780');
 
-require(__dirname + '/app/config/passport')(passport); // pass passport for configuration
+require('./app/config/passport')(passport); // pass passport for configuration
 
 app.configure(function() {
 
@@ -41,7 +41,7 @@ app.configure(function() {
 	app.use(passport.initialize());
 	app.use(passport.session()); // persistent login sessions
 	app.use(flash()); // use connect-flash for flash messages stored in session
-    app.use('/assets', express.static(__dirname + '/app/views/assets'));
+    app.use('/assets', express.static('./app/views/assets'));
     app.use(express.compress());
 });
 

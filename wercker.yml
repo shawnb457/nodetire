@@ -43,6 +43,12 @@ deploy:
     - script:
         name: untar file
         code: ssh -i $PRIVATEKEY_PATH -l  root 107.170.71.156 " cd /var/local/www/ && rm -r app && tar -xvf app.tar"  
+    - script:
+        name: push server
+        code: |
+          pwd
+          ls -la
+          scp -i $PRIVATEKEY_PATH server.js root@107.170.71.156:/var/local/www
     - script:   
         name: npm install
         code: ssh -i $PRIVATEKEY_PATH -l  root 107.170.71.156 "cd /var/local/www/ &&  npm install --production"
