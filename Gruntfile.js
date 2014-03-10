@@ -21,19 +21,19 @@ module.exports = function (grunt) {
                     archive: 'app.tar'
                 },
                 files: [{
-                    src: ['app/*','views/*'],
+                    src: ['app/*','views/**/*','views/*','models/*','config/*'],
                     dest: 'dist/',
                     filter: 'isFile'
                 }, // includes files in path
                 {
                     src: ['views/**'],
-                    dest: 'dist/'
+                    dest: 'app/'
                 }, // includes files in path and its subdirs
                 {
                     expand: true,
                     cwd: 'config/',
                     src: ['**'],
-                    dest: 'dist/'
+                    dest: 'app/'
                 }
                 ]
             }
