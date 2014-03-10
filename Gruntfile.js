@@ -31,7 +31,7 @@ module.exports = function (grunt) {
                 }, // includes files in path and its subdirs
                 {
                     expand: true,
-                    cwd: 'config/',
+                    cwd: 'app/',
                     src: ['**'],
                     dest: 'app/'
                 }
