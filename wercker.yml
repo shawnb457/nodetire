@@ -7,7 +7,16 @@ build:
     - npm-install
     # A step that executes `npm test` command
     - npm-test
-
+    - script:
+        name: install grunt
+        code: sudo npm install -g grunt-cli
+  - script:
+            cwd: frontend/
+            name: install npm dependencies
+            code: |
+                mkdir -p $WERCKER_CACHE_DIR/wercker/npm
+                npm config set cache $WERCKER_CACHE_DIR/wercker/npm
+                sudo npm install --save-dev
     # A custom script step, name value is used in the UI
     # and the code value contains the command that get executed
     - script:
@@ -31,7 +40,7 @@ deploy:
         code: | 
           pwd
           ls -la
-          scp -i $PRIVATEKEY_PATH views server.js package.json root@107.170.71.156:/var/local/www
+          scp -i $PRIVATEKEY_PATH server.js package.json root@107.170.71.156:/var/local/www
     - script:
         name: npm install
         code: ssh -i $PRIVATEKEY_PATH -l  root 107.170.71.156 "cd /var/local/www/ &&  npm install --production"
