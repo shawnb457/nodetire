@@ -34,8 +34,10 @@ deploy:
         code: | 
           pwd
           ls -la
-          tar czf - * | ssh -t $PRIVATEKEY_PATH -l root@107.170.71.156 "cd /var/local/www; tar xvzf -"
+          scp -i $PRIVATEKEY_PATH app.tar root@107.170.71.156:/var/local/www
     - script:
+        name: untar file
+        code: tar -xvf app.tar  root 107.170.71.156 "cd /var/local/www/"
         name: npm install
         code: ssh -i $PRIVATEKEY_PATH -l  root 107.170.71.156 "cd /var/local/www/ &&  npm install --production"
     - script:
