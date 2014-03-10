@@ -28,5 +28,5 @@ module.exports = function (grunt) {
     
     grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.registerTask('default', ['jshint', 'cssmin']);
-    grunt.registerTask('com', ['jshint', 'compress']);
+    grunt.registerTask('com', ['compress']);
 };
