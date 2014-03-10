@@ -10,13 +10,7 @@ build:
     - script:
         name: install grunt
         code: sudo npm install -g grunt-cli
-  - script:
-            cwd: frontend/
-            name: install npm dependencies
-            code: |
-                mkdir -p $WERCKER_CACHE_DIR/wercker/npm
-                npm config set cache $WERCKER_CACHE_DIR/wercker/npm
-                sudo npm install --save-dev
+  
     # A custom script step, name value is used in the UI
     # and the code value contains the command that get executed
     - script:
