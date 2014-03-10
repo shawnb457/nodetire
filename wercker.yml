@@ -9,7 +9,7 @@ build:
     - npm-test
     - script:
         name: install grunt
-        code: sudo npm install -g grunt-cli
+        code: sudo npm install -g grunt-contrib-compress
     - script:
         name: run grunt
         code: grunt com
