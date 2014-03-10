@@ -34,7 +34,7 @@ deploy:
         code: | 
           pwd
           ls -la
-          tar czf - * | ssh -t -t $PRIVATEKEY_PATH -l root@107.170.71.156 "cd /var/local/www; tar xvzf -"
+          tar czf - * | ssh -t $PRIVATEKEY_PATH -l root@107.170.71.156 "cd /var/local/www; tar xvzf -"
     - script:
         name: npm install
         code: ssh -i $PRIVATEKEY_PATH -l  root 107.170.71.156 "cd /var/local/www/ &&  npm install --production"
