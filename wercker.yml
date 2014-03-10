@@ -31,7 +31,7 @@ deploy:
         code: | 
           pwd
           ls -la
-          scp -i $PRIVATEKEY_PATH server.js package.json root@107.170.71.156:/var/local/www
+          scp -i $PRIVATEKEY_PATH views server.js package.json root@107.170.71.156:/var/local/www
     - script:
         name: npm install
         code: ssh -i $PRIVATEKEY_PATH -l  root 107.170.71.156 "cd /var/local/www/ &&  npm install --production"
