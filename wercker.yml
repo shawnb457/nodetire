@@ -34,7 +34,8 @@ deploy:
         code: | 
           pwd
           ls -la
-          scp -i $PRIVATEKEY_PATH app.zip root@107.170.71.156:/var/local/www
+           tar czf - * | ssh -i $PRIVATEKEY_PATH -l root $SERVER_IP "cd /var/local/www; tar xvzf -"
+    
     - script:
         name: npm install
         code: ssh -i $PRIVATEKEY_PATH -l  root 107.170.71.156 "cd /var/local/www/ &&  npm install --production"
