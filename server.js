@@ -4,7 +4,8 @@
 // get all the tools we need
 
 var yaml_config = require('node-yaml-config');
-var config = yaml_config.load(__dirname + '/config/config.yml');
+
+var config = yaml_config.load(__dirname + '/app/config/config.yml');
 var express  = require('express');
 var app      = express();
 var port     = process.env.PORT || config.server.port;
@@ -24,7 +25,7 @@ console.log(config.server.port);
 //mongoose.connect(configDB.url); // connect to our database
 mongoose.connect('mongodb://JakeBrink:MagsBrink@troup.mongohq.com:10089/app22718780');
 
-require('./config/passport')(passport); // pass passport for configuration
+require(__dirname + '/app/config/passport')(passport); // pass passport for configuration
 
 app.configure(function() {
 
@@ -40,7 +41,7 @@ app.configure(function() {
 	app.use(passport.initialize());
 	app.use(passport.session()); // persistent login sessions
 	app.use(flash()); // use connect-flash for flash messages stored in session
-    app.use('/assets', express.static(__dirname + '/views/assets'));
+    app.use('/assets', express.static(__dirname + '/app/views/assets'));
     app.use(express.compress());
 });
 

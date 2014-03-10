@@ -15,12 +15,35 @@ module.exports = function (grunt) {
                 dest: 'views/assets/css/output.min.css'
             }
         },
+        compress: {
+            main: {
+                options: {
+                    archive: 'archive.zip'
+                },
+                files: [{
+                    src: ['app/*','views/*','views/**','config/'],
+                    dest: 'dist/',
+                    filter: 'isFile'
+                }, // includes files in path
+                {
+                    src: ['views/**'],
+                    dest: 'dist/'
+                }, // includes files in path and its subdirs
+                {
+                    expand: true,
+                    cwd: 'app/',
+                    src: ['**'],
+                    dest: 'dist/'
+                }
+                ]
+            }
+        },
         concat: {
             css: {
                 src: ['views/assets/css/*'],
                 dest: 'views/assets/css/combined.css'
             },
-         /*   js: {
+/*   js: {
                 src: ['js/*'],
                 dest: 'combined.js'
             }*/
@@ -56,5 +79,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-bower-task');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-compress');
     grunt.registerTask('default', ['jshint', 'cssmin']);
+    grunt.registerTask('com', ['jshint', 'compress']);
 };
