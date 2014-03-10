@@ -1,14 +1,5 @@
 module.exports = function (grunt) {
     grunt.initConfig({
-        browserify: {
-            options: {
-                transform: [require('grunt-react').browserify]
-            },
-            app: {
-                src: 'app/main.js',
-                dest: 'app/public/js/output.js'
-            }
-        },
         cssmin: {
             minify: {
                 src: 'views/assets/css/output.css',
