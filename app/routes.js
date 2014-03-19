@@ -1,18 +1,22 @@
 module.exports = function(app, passport) {
-
+require('date-utils');
 // normal routes ===============================================================
-    console.log(__dirname);
+    
 	// show the home page (will also have our login links)
 	app.get('/', function(req, res) {
 		res.render(__dirname + '/views/login.ejs');
 	});
-
+    var wkDays=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
 	// PROFILE SECTION =========================
-	app.get('/profile', isLoggedIn, function(req, res) {
-		res.render(__dirname + '/views/profile.ejs', {
-			user : req.user
+	app.get('/index', isLoggedIn, function(req, res) {
+        res.date = new Date();
+        var tempday = res.date.getDay();
+		res.render(__dirname + '/views/index.ejs', {
+			user : req.user,
+            date : res.date,
+            day  : tempday=wkDays[tempday]
 		});
-	});
+    });
 
 	// LOGOUT ==============================
 	app.get('/logout', function(req, res) {
@@ -35,7 +39,7 @@ module.exports = function(app, passport) {
 
 		// process the login form
 		app.post('/login', passport.authenticate('local-login', {
-			successRedirect :'/profile', // redirect to the secure profile section
+			successRedirect :'/index', // redirect to the secure profile section
 			failureRedirect : '/login', // redirect back to the signup page if there is an error
 			failureFlash : true // allow flash messages
 		}));
@@ -48,7 +52,7 @@ module.exports = function(app, passport) {
 
         // process the signup form
 		app.post('/signup', passport.authenticate('local-signup', {
-			successRedirect : '/profile', // redirect to the secure profile section
+			successRedirect : '/index', // redirect to the secure profile section
 			failureRedirect : '/signup', // redirect back to the signup page if there is an error
 			failureFlash : true // allow flash messages
 		}));
@@ -78,8 +82,8 @@ module.exports = function(app, passport) {
 		}));
 
         app.post('/key', passport.authenticate('local-signup', {
-            successRedirect : __dirname +'/views/profile', // redirect to the secure profile section
-            failureRedirect : '/signup', // redirect back to the signup page if there is an error
+            successRedirect : __dirname +'/views/index', // redirect to the secure profile section
+            failureRedirect : '/createkey', // redirect back to the signup page if there is an error
             failureFlash : true // allow flash messages
         }));
 
@@ -92,7 +96,7 @@ module.exports = function(app, passport) {
 // =============================================================================
 // used to unlink accounts. for social accounts, just remove the token
 // for local account, remove email and password
-// user account will stay active in case they want to reconnect in the future
+// user account will stay active in case they want to reconnect in the futureÏ
 
 	// local -----------------------------------
 	app.get('/unlink/local', function(req, res) {

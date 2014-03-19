@@ -76,23 +76,34 @@
 
 <!-- Text Under Box -->
 <div class="login-extra">
- <a href="/forgot"> Forgot</a><br/>
+ <a href="/forgot"> Forgot Password</a><br/>
 </div> <!-- /login-extra -->
 
 
 
-
+<div class="modal" id="password_modal">
+    <div class="modal-header">
+        <h3>Change Password <span class="extra-title muted"></span></h3>
+    </div>
+    <div class="modal-body form-horizontal">
+        <div class="control-group">
+            <label for="current_password" class="control-label">Forgot Password</label>
+            <div class="controls">
+                <input type="password" name="current_password">
+            </div>
+        </div>
+            
+    </div>
+    <div class="modal-footer">
+        <button href="#" class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+        <button href="#" class="btn btn-primary" id="password_modal_save">Save changes</button>
+    </div>
+</div>
 
 <!-- Le javascript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
-<script src="assets/js/libs/jquery-1.9.1.min.js"></script>
-<script src="assets/js/libs/jquery-ui-1.10.0.custom.min.js"></script>
-<script src="assets/js/libs/bootstrap.min.js"></script>
-
-<script src="assets/js/Application.js"></script>
-
-<script src="assets/js/demo/signin.js"></script>
+<script src="assets/js/login.js"></script>
 
 </body>
 </html>
