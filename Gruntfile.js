@@ -1,24 +1,78 @@
-module.exports = function (grunt) {
-    grunt.initConfig({
-        copy: {
-            main: {
-                files: [
-                // includes files within path
-                // {expand: true, src: ['path/*'], dest: 'dest/', filter: 'isFile'},
-                // includes files within path and its sub-directories
-                {
-                    expand: true,
-                    src: ['bower_components/**/*.js'],
-                    dest: 'app/views/assets/js/libs'
-                },
-                // makes all src relative to cwd
-                //{expand: true, cwd: 'path/', src: ['**'], dest: 'dest/'},
-                // flattens results to a single level
-                //{expand: true, flatten: true, src: ['path/**'], dest: 'dest/', filter: 'isFile'}
-                ]
-            }
-        },
-        compress: {
+var crypto = require('crypto');
+var fs = require('fs');
+
+function createFileSha(filenane) {
+	var sha = crypto.createHash('sha1');
+	return sha.update(fs.readFileSync(filenane));
+}
+
+module.exports = function(grunt) {
+	grunt.initConfig({
+		meta: {
+			version: '0.0.5'
+		},
+
+		jshint: {
+			options: {
+				"asi" : false,
+				"bitwise" : false,
+				"boss" : false,
+				"curly" : false,
+				"debug": false,
+				"devel": false,
+				"eqeqeq": false,
+				"evil": false,
+				"expr": false,
+				"forin": false,
+				"immed": false,
+				"latedef" : false,
+				"laxbreak": false,
+				"multistr": true,
+				"newcap":  false,
+				"noarg": false,
+				"node" : false,
+				"browser": false,
+				"noempty": false,
+				"nonew": false,
+				"onevar": false,
+				"plusplus": false,
+				"regexp": false,
+				"strict": false,
+				"sub": false,
+				"trailing" : false,
+				"undef": false,
+				globals: {
+					jQuery: true,
+					Backbone: true,
+					_: true,
+					$: true,
+					require: true,
+					define: true
+				}
+			},
+			js: ['public/js/**/*.js', 'source/**/*.js']
+		},
+
+		requirejs: {
+			js: {
+				options: {
+					baseUrl: "public/js",
+					mainConfigFile: "public/js/main.js",
+					name: 'main',
+					out: "public/build/main.js"
+				}
+			},
+			css: {
+				options: {
+					baseUrl: 'public/css',
+					cssIn: "public/css/main.css",
+					out: "public/build/main.css",
+					cssImportIgnore: null,
+					optimizeCss: 'default'
+				}
+			}
+		},
+         compress: {
             main: {
                 options: {
                     archive: 'app.tar'
@@ -31,42 +85,29 @@ module.exports = function (grunt) {
                 }, ]
             }
         },
-        concat: {
-            options: {
-                separator: ';',
-            },
-            dist: {
-                src: ['app/views/assets/js/libs/jquery-1.9.1.min.js', 'app/views/assets/js/libs/jquery-ui-1.10.0.custom.min.js', 'app/views/assets/js/libs/bootstrap.min.js','app/views/assets/js/demo/signin.js'],
-                dest: 'app/views/assets/js/login.js',
-            },
-        },
-        requirejs: {
-            compile: {
-                options: {
-                    baseUrl: "app/",
-                    mainConfigFile: "app/config/config.js",
-                    out: "app/views/assets/js/main.js", 
-                    optimize: 'none'
-                  
-                }
-            }
-        },
-        jshint: {
-            options: {
-                scripturl: true,
-                eqnull: true
-            },
-            // TODO: how to jshint the files with JSX?
-            app: ['app/*.js'],
-            other: ['Gruntfile.js']
-        }
-    });
-    grunt.loadNpmTasks('grunt-contrib-requirejs');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-compress');
-    grunt.registerTask('default', ['jshint', 'cssmin']);
-    grunt.registerTask('com', ['compress']);
-    grunt.registerTask('default', ['copy','requirejs']);
 
+		hashres: {
+			options: {
+				fileNameFormat: '${name}-${hash}.${ext}'
+			},
+			prod: {
+				src: [
+					'public/build/main.js',
+					'public/build/main.css'
+				],
+				dest: { src: 'tools/client/index.js', out: 'source/client/index.js' }
+			}
+		}
+
+	});
+
+	// Laoded tasks
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-requirejs');
+	grunt.loadNpmTasks('grunt-hashres');
+    grunt.loadNpmTasks('grunt-contrib-compress');
+
+	// Default task.
+	grunt.registerTask('default', ['requirejs', 'hashres']);
+    grunt.registerTask('com', ['compress']);
 };
