@@ -4,7 +4,7 @@ var middleware = require('./../middleware');
 var mongoose = require('mongoose');
 var user = require('./../models/user');
 module.exports = function (app, passport) {
-    //mongoose.connect('mongodb://JakeBrink:MagsBrink@troup.mongohq.com:10089/app22718780');
+    //mongoose.connect('mongodb://JakeBrink611:cb3aae71c3ef5e23e7038b6dac08b0b8@oceanic.mongohq.com:10017/nodetire');
     mongoose.connect('mongodb://localhost/AppRoles');
     app.get('/login', function (req, res) {
         console.log(req);
