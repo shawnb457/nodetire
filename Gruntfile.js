@@ -108,6 +108,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-compress');
 
 	// Default task.
-	grunt.registerTask('default', ['requirejs', 'hashres']);
+	//grunt.registerTask('default', ['requirejs', 'hashres']);
     grunt.registerTask('com', ['compress']);
 };
