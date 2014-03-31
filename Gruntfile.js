@@ -84,7 +84,8 @@ module.exports = function(grunt) {
                     dest: '/public/'
                 },
 
-                {src: ['views/**'], dest: '/'}, //
+                {src: ['views/**'], dest: '/'},
+                {src: ['source/**'], dest: '/'} //
 
 
                  ]
