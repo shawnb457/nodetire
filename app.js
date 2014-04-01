@@ -11,7 +11,7 @@ var app = express();
 var oneMonth = 2678400000;
 
 app.configure(function(){
-    
+
 	app.set('port', process.env.PORT || 3000);
 	app.set('views', __dirname + '/views');
 	app.set('view engine', 'ejs');
@@ -34,6 +34,7 @@ require('./source/api/auth')(app,passport);
 
 app.configure('development', function(){
 	app.use(express.errorHandler());
+    console.log(__dirname);
 	app.use(express.static(path.join(__dirname, 'public')));
 	app.use(middleware.serveMaster.development());
 });
