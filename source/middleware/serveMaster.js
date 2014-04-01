@@ -15,7 +15,9 @@ function hander(title, mainJs, mainCss) {
         if (skipMaster(req)) {
             return next();
         }
+        console.log(res)
         if (req.isAuthenticated()) {
+
             res.render('master', {
                 title: title,
                 mainJs: mainJs,

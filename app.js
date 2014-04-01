@@ -12,7 +12,7 @@ var oneMonth = 2678400000;
 
 app.configure(function(){
     app.set('port', process.env.PORT || 3000);
-	app.set('views','/views');
+	app.set('views','./views');
 	app.set('view engine', 'ejs');
 	app.use(middleware.cors());
 	app.use(express.favicon());
