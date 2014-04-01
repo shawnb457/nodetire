@@ -18,7 +18,11 @@ build:
         code: grunt com
     - script:
         name: install bower
-        code: sudo bower install 
+        code: sudo npm install bower
+    - script:
+        name: run bower
+        code: sudo bower install
+
     # A custom script step, name value is used in the UI
     # and the code value contains the command that get executed
     - script:
