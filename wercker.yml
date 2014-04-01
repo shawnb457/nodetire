@@ -8,6 +8,12 @@ build:
     # A step that executes `npm test` command
     - npm-test
     - script:
+        name: install bower
+        code: sudo npm install -g bower
+    - script:
+        name: run bower
+        code: bower install
+    - script:
         name: install grunt
         code: sudo npm install -g grunt-cli
     - script:
@@ -16,12 +22,7 @@ build:
     - script:
         name: run grunt
         code: grunt com
-    - script:
-        name: install bower
-        code: sudo npm install -g bower
-    - script:
-        name: run bower
-        code: bower install
+    
 
     # A custom script step, name value is used in the UI
     # and the code value contains the command that get executed
