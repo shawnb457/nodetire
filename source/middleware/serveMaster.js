@@ -34,7 +34,7 @@ function hander(title, mainJs, mainCss) {
 }
 module.exports = {
     development: function () {
-        return hander('SPA Boilerplate | Development', '/js/main.js', '/css/main.css');
+        return hander('SPA Boilerplate | Development', '/public/js/main.js', '/public/css/main.css');
     },
     production: function () {
         return hander('SPA Boilerplate | Production', client.js, client.css);
