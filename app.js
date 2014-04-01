@@ -35,7 +35,7 @@ require('./source/api/auth')(app,passport);
 app.configure('development', function(){
 	app.use(express.errorHandler());
     console.log(__dirname);
-	app.use(express.static(path.join(__dirname, 'public')));
+	app.use('/assets', express.static('./public'));
 	app.use(middleware.serveMaster.development());
 });
 
