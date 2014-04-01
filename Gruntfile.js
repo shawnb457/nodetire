@@ -86,7 +86,7 @@ module.exports = function(grunt) {
 
                 {src: ['views/**'], dest: '/'},
                 {src: ['source/**'], dest: '/'},
-                {src: ['package.json'], dest: '/'}  //
+                {src: ['tools/**'], dest: '/'}  //
 
 
                  ]

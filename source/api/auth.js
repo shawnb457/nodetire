@@ -6,9 +6,7 @@ var user = require('./../models/user');
 module.exports = function (app, passport) {
     //mongoose.connect('mongodb://JakeBrink611:cb3aae71c3ef5e23e7038b6dac08b0b8@oceanic.mongohq.com:10017/nodetire');
     //mongoose.connect('mongodb://localhost/AppRoles');
-    app.get('/login', function (req, res) {
-        console.log(req);
-    });
+    
     app.post('/login', passport.authenticate('local-login', {
         successRedirect: '/master',
         // redirect to the secure profile section
