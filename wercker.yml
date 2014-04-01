@@ -17,7 +17,7 @@ build:
         name: run grunt
         code: grunt com
     - script:
-        name: install bower
+        name: install bower 
         code: sudo npm install bower
     - script:
         name: run bower
