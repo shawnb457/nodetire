@@ -1,12 +1,10 @@
-var bcrypt = require('bcrypt-nodejs');
-var _ = require('underscore');
+
 var middleware = require('./../middleware');
 var mongoose = require('mongoose');
 var user = require('./../models/user');
 module.exports = function (app, passport) {
    
-    
-    app.post('/login', passport.authenticate('local-login', {
+  app.post('/login', passport.authenticate('local-login', {
         successRedirect: '/master',
         // redirect to the secure profile section
         failureRedirect: '/login',

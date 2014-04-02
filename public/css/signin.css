@@ -65,9 +65,9 @@ body{ color:#838383; font: 13px/1.7em 'Open Sans';}
 	height: 40px;
 }
 
-.username-field { background: url(../../img/signin/user.png) no-repeat; }
+.username-field { background: url(../img/signin/user.png) no-repeat; }
 
-.password-field { background: url(../../img/signin/password.png) no-repeat; }
+.password-field { background: url(../img/signin/password.png) no-repeat; }
 
 
 
@@ -113,7 +113,7 @@ span.login-checkbox > input[type='checkbox'] + label {
     font-size: 12px;
     line-height: 1.2em;
     
-    background: url(../../img/signin/check.png) no-repeat 0 0;
+    background: url(../img/signin/check.png) no-repeat 0 0;
     
     cursor: pointer;
 }

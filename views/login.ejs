@@ -4,8 +4,9 @@
         <title><%= title %></title>
           <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes">  
-        <link rel="stylesheet" type="text/css" href="/assets<%= mainCss %>"/>
-        <script type="text/javascript" src="/assets/components/requirejs/require.js" data-main="/assets<%= mainJs %>"></script>
+      <link rel="stylesheet" type="text/css" href="/assets/css/main.css">
+       <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+       
     </head>
 <body>
 <nav class="navbar navbar-inverse" role="navigation">
@@ -25,7 +26,20 @@
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav navbar-right">
-        
+         <li class="">                      
+            <a href="/signup">
+                Create an Account   
+            </a>            
+        </li>
+
+        <li class="">
+                        
+            <a href="#">
+                <i class="icon-chevron-left"></i>&nbsp;&nbsp; 
+                Back to Homepage
+            </a>
+            
+        </li>
     </ul>
   </div><!-- /.navbar-collapse -->
 </div> <!-- /.container -->
@@ -61,7 +75,7 @@
                 
                 <span class="login-checkbox">
                     <input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
-                    <label class="choice" for="Field">Auto keep</label>
+                    <label class="choice" for="Field">Keep me logged in </label>
                 </span>
                  <button type="submit" class="login-action btn btn-primary">Login</button>                   
                
@@ -80,7 +94,11 @@
 <!-- Text Under Box -->
 <div class="login-extra">
  <a href="/forgot"> Forgot Password</a><br/>
-</div> <!-- /login-extra -->
+</div>
+
+<div class="login-extra">
+ <a href="/signup"> Create Account</a><br/>
+</div>
 
 
 
@@ -106,4 +124,5 @@
 
 
 </body>
+ <script type="text/javascript" src="/assets/build/main.js"></script>
 </html>

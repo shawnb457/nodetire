@@ -8,58 +8,13 @@ function createFileSha(filenane) {
 
 module.exports = function(grunt) {
 	grunt.initConfig({
-		meta: {
-			version: '0.0.5'
-		},
-
-		jshint: {
-			options: {
-				"asi" : false,
-				"bitwise" : false,
-				"boss" : false,
-				"curly" : false,
-				"debug": false,
-				"devel": false,
-				"eqeqeq": false,
-				"evil": false,
-				"expr": false,
-				"forin": false,
-				"immed": false,
-				"latedef" : false,
-				"laxbreak": false,
-				"multistr": true,
-				"newcap":  false,
-				"noarg": false,
-				"node" : false,
-				"browser": false,
-				"noempty": false,
-				"nonew": false,
-				"onevar": false,
-				"plusplus": false,
-				"regexp": false,
-				"strict": false,
-				"sub": false,
-				"trailing" : false,
-				"undef": false,
-				globals: {
-					jQuery: true,
-					Backbone: true,
-					_: true,
-					$: true,
-					require: true,
-					define: true
-				}
-			},
-			js: ['public/js/**/*.js', 'source/**/*.js']
-		},
-
 		requirejs: {
-			js: {
+			compile: {
 				options: {
-					baseUrl: "public/js",
-					mainConfigFile: "public/js/main.js",
-					name: 'main',
-					out: "public/build/main.js"
+					baseUrl: "public/js/",
+					mainConfigFile: "public/js/config/config.js",
+					out: "public/build/main.js",
+                    optimize: 'none'
 				}
 			},
 			css: {
@@ -117,5 +72,6 @@ module.exports = function(grunt) {
 
 	// Default task.
 	//grunt.registerTask('default', ['requirejs', 'hashres']);
+      grunt.registerTask('default', ['requirejs']);
     grunt.registerTask('com', ['compress']);
 };

@@ -2,10 +2,11 @@
 <html lang="en">
 	<head>
 		<title><%= title %></title>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">  
-		<link rel="stylesheet" type="text/css" href="/assets<%= mainCss %>">
-        <script type="text/javascript" src="/assets/components/requirejs/require.js" data-main="/assets<%= mainJs %>"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">  
+		<link rel="stylesheet" type="text/css" href="/assets/build/main.css">
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,600italic,400,600" rel="stylesheet">
+        
 	</head>
 	<body>
 	  <nav class="navbar navbar-inverse" role="navigation">
@@ -28,7 +29,7 @@
             <a href="javscript:;" class="dropdown-toggle" data-toggle="dropdown">
                 <i class="icon-cog"></i>
                 Settings
-                <b class="caret"></b>
+                <b class="caret"><%= user.local.first %></b>
             </a>
             
             <ul class="dropdown-menu">
@@ -58,11 +59,7 @@
         </li>
     </ul>
     
-    <form class="navbar-form navbar-right" role="search">
-      <div class="form-group">
-        <input type="text" class="form-control input-sm search-query" placeholder="Search">
-      </div>
-    </form>
+    
   </div><!-- /.navbar-collapse -->
 </div> <!-- /.container -->
 </nav>
@@ -89,21 +86,6 @@
                         </a>                        
                     </li>
                     
-                    <li class="dropdown">                   
-                        <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="fa fa-gears"></i>
-                            <span>Settings</span>
-                            <b class="caret"></b>
-                        </a>        
-                    
-                        <ul class="dropdown-menu">
-                            <li><a href="./elements.html">Elements</a></li>
-                            <li><a href="./forms.html">Form Styles</a></li>
-                            <li><a href="./jqueryui.html">jQuery UI</a></li>
-                            <li><a href="./charts.html">Charts</a></li>
-                            <li><a href="./popups.html">Popups/Notifications</a></li>
-                        </ul>               
-                    </li>
                     
                     <li class="dropdown">                   
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
@@ -204,9 +186,11 @@
                                       
                     </li>
                  
-                    <li>
-                           <time  class="icon">
-                             
+                    <li id="cal">
+                          <time  class="icon">
+                                <em><%= day %></em>
+                                <strong><%= date.getMonthName() %></strong>
+                                <span><%= date.getDate() %></span>
                             </time>
 
 
@@ -222,7 +206,8 @@
 
 </div>
 	<div class="container">
-		<div id="app" class="container" data-transition="fadeOutLeft"></div>
+		<div id="main" class="container" ></div>
 	</div>
 	</body>
+    <script type="text/javascript" src="/assets/build/main.js"></script>
 </html>

@@ -1,5 +1,6 @@
 var _ = require('underscore');
 var client = require('./../client');
+require('date-utils');
 
 function skipMaster(req) {
     return _.any(['/api', '/components', '/css', '/js', '/build'], function (url) {
@@ -7,16 +8,24 @@ function skipMaster(req) {
     });
 }
 
+var wkDays=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"]
+   
+
+
 function hander(title, mainJs, mainCss) {
     return function (req, res, next) {
         if (skipMaster(req)) {
             return next();
         }
+          date = new Date();
+        var tempday = date.getDay();
+        console.log(req.user);
         if (req.isAuthenticated()) {
             res.render('master', {
                 title: title,
-                mainJs: mainJs,
-                mainCss: mainCss
+                user: req.user,
+                date: date,
+                day: tempday=wkDays[tempday]
             });
         } else {
             res.render('login', {
