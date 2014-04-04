@@ -1,9 +1,11 @@
 @import url('bootstrap.css');
 @import url('../components/animate.css/animate.css');
 @import url('../components/font-awesome/css/font-awesome.css');
-@import url('jquery-ui-1.10.0.custom.min.css');
-@import url('base-admin-3-responsive.css');
-@import url('base-admin-3.css');
-@import url('dashboard.css');
-@import url('signin.css');
-@import url('custom.css');
+@import url('jquery-ui.min.css');
+@import url('fullcalendar.css');
+@import url('morris.css');
+@import url('jquery-jvectormap-1.2.2.css');
+@import url('climacons-font.css');
+@import url('style.min.css');
+
+

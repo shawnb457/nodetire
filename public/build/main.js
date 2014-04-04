@@ -14190,32 +14190,24 @@ define('apps/cal/views/indexView',['require','exports','module'],function (requi
  return indexView;
 });
 define('core/router',['require','exports','module','apps/cal/views/indexView'],function (require, exports, module) {
-   
-   var calView = require('apps/cal/views/indexView');
-   
-    
+    var calView = require('apps/cal/views/indexView');
     var Router = Backbone.Router.extend({
         routes: {
-            '': 'login',
-            'login': 'login',
-            'signup':'signup',
+            '': 'master',
             'cal': 'cal'
         },
-        app:'',
-
-        initialize: function(appholder) {
+        app: '',
+        initialize: function (appholder) {
             this.app = appholder;
+        },
+        master: function(){
+
         },
         cal: function () {
             this.app.views.cal = new calView();
-
             this.app.views.current_view.showView(this.app.views.cal);
-            
-            
-        },
-        signup:function (){
-           
         }
+        
     });
     return Router;
 });
