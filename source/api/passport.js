@@ -1,8 +1,6 @@
 // load all the things we need
 var LocalStrategy    = require('passport-local').Strategy;
-
-
-// load up the user model
+var PinStrategy    = require('passport-pin').Strategy;
 var User       = require('../models/user');
 
 
@@ -25,6 +23,15 @@ module.exports = function(passport) {
             done(err, user);
         });
     });
+
+
+    passport.use('pin',new PinStrategy(
+      function(username, password, done) {
+          User.findOne({ pin: pin}, function (err, user) {
+            done(err, user);
+          });
+        }
+      ));
  
     // =========================================================================
     // LOCAL LOGIN =============================================================

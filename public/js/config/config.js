@@ -5,6 +5,7 @@ require.config({
         backbone: '../components/backbone/backbone',
         underscore: '../components/underscore/underscore',
         bootstrap: '../components/bootstrap/dist/js/bootstrap',
+        raphael: '../components/raphael/raphael-min'
     },
     shim: {
         'backbone': {

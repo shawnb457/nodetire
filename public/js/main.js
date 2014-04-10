@@ -3,6 +3,7 @@ define(function (require, exports, module) {
         $ = require('jquery'),
         Backbone = require('backbone'),
         bootstrap = require('bootstrap'),
+        raphael = require('raphael'),
 
         app = require('app');
     $(function () {

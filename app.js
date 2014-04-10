@@ -8,9 +8,15 @@ var flash = require('connect-flash');
 var app = express();
 var mongoose = require('mongoose');
 
-var oneMonth = 2678400000;
+var mongoURI = "mongodb://MagsBrink878:JakeBrink611@oceanic.mongohq.com:10017/nodetire";
 
-mongoose.connect('mongodb://MagsBrink878:JakeBrink611@oceanic.mongohq.com:10017/nodetire',function(err) { if (err) console.log(err);});
+var MongoDB = mongoose.connect(mongoURI).connection;
+MongoDB.on('error', function(err) { console.log(err.message); });
+MongoDB.once('open', function() {
+  console.log("mongodb connection open");
+});
+
+//mongoose.connect('mongodb://MagsBrink878:JakeBrink611@oceanic.mongohq.com:10017/nodetire',function(err) { if (err) console.log(err);});
 //mongoose.connect('mongodb://localhost/AppRoles');
 app.configure(function () {
     app.set('port', process.env.PORT || 3000);

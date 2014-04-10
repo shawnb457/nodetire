@@ -10,7 +10,8 @@ define(function (require, exports, module) {
             this.app = appholder;
         },
         master: function(){
-
+            //console.log(window.location)
+        //window.location.assign('/login');
         },
         cal: function () {
             this.app.views.cal = new calView();

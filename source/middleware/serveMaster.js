@@ -19,7 +19,7 @@ function hander(title, mainJs, mainCss) {
         }
           date = new Date();
         var tempday = date.getDay();
-        console.log(req.user);
+       
         if (req.isAuthenticated()) {
             res.render('master', {
                 title: title,

@@ -8,6 +8,10 @@
     "bootstrap": "*",
     "requirejs": "~2.1.5",
     "animate.css": "latest",
-    "font-awesome":"latest"
+    "font-awesome": "latest",
+    "socket.io": "~0.9.15",
+    "respond": "~1.4.2",
+    "raphael": "~2.1.2",
+    "moment": "~2.5.1"
   }
 }
